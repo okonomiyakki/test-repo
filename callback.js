@@ -39,16 +39,16 @@
 
 
 
-setTimeout(() => {
-    let tmp = 1
-    console.log(`${tmp++}초 후 출력`)
-    setTimeout(() => {
-        console.log(`${tmp++}초 후 출력`)
-        setTimeout(() => {
-            console.log(`${tmp++}초 후 출력`)
-            setTimeout(() => {
-                console.log(`${tmp++}초 후 출력`)
-            }, 1000)
-        }, 1000)
-    }, 1000)
-}, 1000)
+// setTimeout(() => {
+//     let tmp = 1
+//     console.log(`${tmp++}초 후 출력`)
+//     setTimeout(() => {
+//         console.log(`${tmp++}초 후 출력`)
+//         setTimeout(() => {
+//             console.log(`${tmp++}초 후 출력`)
+//             setTimeout(() => {
+//                 console.log(`${tmp++}초 후 출력`)
+//             }, 1000)
+//         }, 1000)
+//     }, 1000)
+// }, 1000)
