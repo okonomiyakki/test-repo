@@ -118,30 +118,79 @@
 
 
 
-console.log('before promise')
+// console.log('before promise')
+// const promise = new Promise((resolve, reject) => {
+//     // 비동기 작업을 수행하는 코드
+//     // 작업이 완료되면 resolve나 reject 함수를 호출합니다.
+//     setTimeout(() => {
+//         resolve('promise')
+//         console.log('promise')
+//     }, 1000)
+// });
+
+// console.log('after promise')
+
+// promise.then((data) => {
+//     setTimeout(() => console.log(data + '.then'), 1000)
+//     return num = 2
+// }).then(data => console.log(data))
+
+
+
+// //     .then(data => {
+// //     return new Promise(resolve => {
+// //         setTimeout(() => {
+// //             console.log(data + '.then return promise')
+// //             resolve('promis')
+// //         }, 1000)
+// //     })
+// // })
+
+
+//프로미스를 반환
 const promise = new Promise((resolve, reject) => {
-    // 비동기 작업을 수행하는 코드
-    // 작업이 완료되면 resolve나 reject 함수를 호출합니다.
-    setTimeout(() => {
-        resolve('promise')
-        console.log('promise')
-    }, 1000)
+    // 비동기 작업 수행
+    const result = "Success";
+    resolve(result);
 });
 
-console.log('after promise')
-
-promise.then((data) => {
-    setTimeout(() => console.log(data + '.then'), 1000)
-    return num = 2
-}).then(data => console.log(data))
-
-
-
-//     .then(data => {
-//     return new Promise(resolve => {
-//         setTimeout(() => {
-//             console.log(data + '.then return promise')
-//             resolve('promis')
-//         }, 1000)
-//     })
+// promise.then((value) => {
+//     console.log(value); // "Success"
+//     return new Promise((resolve, reject) => {
+//         resolve("Next step");
+//     });
 // })
+//     .then((value) => {
+//         console.log(value); // "Next step" (1초 뒤 출력)
+//     });
+
+
+// //값을 반환
+// const promise2 = new Promise((resolve, reject) => {
+//     // 비동기 작업 수행
+//     const result = "Success";
+//     resolve(result);
+// });
+
+// promise2.then((value) => {
+//     console.log(value); // "Success"
+//     return "Next step";
+// })
+//     .then((value) => {
+//         console.log(value); // "Next step"
+//     });
+
+//값을 반환2
+const promise2 = new Promise((resolve, reject) => {
+    // 비동기 작업 수행
+    const result = "Success";
+    resolve(result);
+});
+
+promise2.then((value) => {
+    console.log(value); // "Success"
+    return Promise.resolve("Next step");
+})
+    .then((value) => {
+        console.log(value); // "Next step"
+    });
