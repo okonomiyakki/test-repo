@@ -20,3 +20,29 @@
 // }
 
 
+// async function getData() {
+//     const response = await fetch('https://api.example.com/data');
+//     const data = await response.json(); // 얘도 비동기 함수
+//     console.log(data);
+// }
+
+// getData();
+
+
+async function sayHello() {
+    await wait(1000);
+    console.log("1");
+    await wait(1000);
+    console.log("2");
+    await wait(1000);
+    console.log("3");
+    return 10
+}
+
+// sayHello();
+
+sayHello().then(console.log)
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
