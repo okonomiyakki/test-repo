@@ -1,0 +1,64 @@
+//생성
+form(action="/posts", method="post")
+    table
+        tbody
+            tr
+                th 제목
+                td: input(type="text" name="title")
+            tr  
+                th 내용
+                td: textarea(name="content")
+            td
+                td(colspan="2")
+                    input(type="submit" value="등록")
+
+
+
+// 목록
+table 
+    tbody
+        each post in posts 
+            tr 
+                td 
+                    a(href='/posts/${post.shortId}')= post.title 
+                td= post.author 
+                td= formatData(post.createAt)
+    tfoot 
+        tr 
+            td(colspan="3")
+                a(href="/posts?write=true") 등록하기
+
+
+
+// 게시글
+table
+    tbody 
+        tr 
+            td(colspan="2")= post.title 
+        tr 
+            td= post.author 
+            td= formatData(post.createdAt)
+        tr 
+            td(clospan="2"): pre= post.content 
+        tr 
+            td: a(href='/posts/${post.shortId}?edit=true') 수정
+            td button(onclick='deletePost("${post.shortId}")') 
+
+
+
+
+// 수정
+- var action = post ? '/posts/${post.shortId}' : "/posts"
+form(action="/posts", method="post")
+    table
+        tbody
+            tr
+                th 제목
+                td: input(type="text" name="title" value=post&&post.title)
+            tr  
+                th 내용
+                td: textarea(name="content")= post&&post.content
+            td
+                td(colspan="2")
+										- var value = post ? "수정" : "등록"
+                    input(type="submit" value="등록")
